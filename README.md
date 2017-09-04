@@ -1,10 +1,13 @@
 # oschina-webhook-handler
 
+[![NPM](https://nodei.co/npm/oschina-webhook-handler.png?downloads=true&downloadRank=true)](https://nodei.co/npm/oschina-webhook-handler/)
+[![NPM](https://nodei.co/npm-dl/oschina-webhook-handler.png?months=6&height=3)](https://nodei.co/npm/oschina-webhook-handler/)
+
 The oschina allows you to register Webhooks for your repositories. Each time an event occurs on your repository, whether it be pushing code, filling issues or creating pull requests, the webhook address you register can be configured to be pinged with details.
 
 This library is a small handler (or "middleware" if you must) fornode.jsweb servers that handles all the logic of receiving and verifying webhook requests from the oschina.
 
-(The base code with https://github.com/rvagg/github-webhook-handler.Thanks.)
+(The base code with https://github.com/rvagg/github-webhook-handler)
 
 ## Event Links
 
