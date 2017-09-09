@@ -10,8 +10,11 @@
  */
 'use strict';
 const http = require('http');
-const createHandler = require('./oschina-webhook-handler');
-const handler = createHandler({path: '/incoming', secret: 'xudaolong'});
+const createHandler = require('../lib/index');
+const handler = createHandler([
+    {path: '/incoming', secret: 'xudaolong'},
+    {path: '/sucheye', secret: 'xudaolong'},
+]);
 
 // 上面的 secret 保持和 oschina 后台设置的一致
 function run_cmd(cmd, args, callback) {
@@ -40,8 +43,22 @@ handler.on('error', function (err) {
 
 // 去官网查看相关的事件:http://git.mydoc.io/?t=154711
 handler.on('push_hooks', function (event) {
-    console.log('Received a push event for %s to %s', event.payload.repository.name, event.payload.ref);
-    run_cmd('sh', ['./prod.sh'], function (text) {
-        console.log(text);
-    });
+    console.log('Received a push event for %s to %s', event.payload.repository.name, event.url);
+    switch (event.url) {
+        case '/incoming':
+            // do sth about
+            // run_cmd('sh', ['./prod.sh'], function (text) {
+            //     console.log(text);
+            // });
+            console.log('incoming');
+            break;
+        case '/sucheye':
+            console.log('sucheye');
+            // do sth about webhook2
+            break;
+        default:
+            console.log('default');
+            // do sth else or nothing
+            break
+    }
 });

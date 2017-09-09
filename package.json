@@ -1,6 +1,6 @@
 {
   "name": "oschina-webhook-handler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "support oschina webhook",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,8 @@
     "url": "https://github.com/xudaolong/oschina-webhook-handler"
   },
   "author": "xudaolong",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "bl": "^1.2.1"
+  }
 }
